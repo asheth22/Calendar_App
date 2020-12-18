@@ -1,5 +1,6 @@
 var now = dayjs();
 var container = $(".container");
+var txtArea = "";
 
 setPlanner();
 
@@ -7,7 +8,7 @@ $(".saveBtn").on('click', function () {
     var currentEl = $(this);
     var parentIndex = parseInt(currentEl.parent().index());
     console.log("parent index on click:", parentIndex);
-    var txtArea = currentEl.siblings(".description");
+    txtArea = currentEl.siblings(".description");
     localStorage.setItem(parentIndex, txtArea.val());
     console.log(txtArea.val());
 })
@@ -18,6 +19,13 @@ function setPlanner() {
         var element = $(this);
         var index = parseInt(element.index());
         var pHourEl = element.children(".hour");
+        var txtEl = element.children(".description");
+        console.log(txtEl);
+        if (localStorage.getItem(index) !== null) {
+            // txtArea(HTML) = localStorage.setItem(index);
+            console.log("txtArea: ", txtEl);
+             txtEl.html(localStorage.getItem(index));
+        }
         var pHour = dayjs().hour(9 + index);
         pHour = pHour.format("h A");
         pHourEl.html(pHour);
@@ -27,16 +35,13 @@ function setPlanner() {
 
         console.log("current hour: ", cHour, "pHour: ", hour);
         descEl = element.children(".description");
-        if (hour < cHour) {
-            console.log("planner time", hour, "is less than current hour", cHour);
+        if (hour < cHour) {            
             descEl.addClass("past");
         }
-        else if (hour === cHour) {
-            console.log("planner time", hour, "is equal to current hour", cHour);
+        else if (hour === cHour) {            
             descEl.addClass("present");
         }
-        else {
-            console.log("planner time", hour, "is greater to current hour", cHour);
+        else {            
             descEl.addClass("future");
         }
     });

@@ -55,12 +55,12 @@ body {
   }
   
   .present {
-    background-color: #f7bbb8;
+    background-color: #ff6961;
     color: white;
   }
   
   .future {
-    background-color: #9bf79b;
+    background-color:#5ba35b;
     color: white;
   }
   
@@ -70,6 +70,7 @@ body {
     border-bottom-right-radius: 15px;
     background-color: #06AED5;
     color: white;
+    font-weight: bold;
   }
   
   .saveBtn i:hover {
