@@ -77,4 +77,11 @@ body {
     font-size: 20px;
     transition: all .3s ease-in-out;
   }
-  
+  @media only screen and (max-width: 600px) {
+    body {
+      /* max-width: 90%;  */
+      font-size: 10px;
+    }
+   
+      
+  }
