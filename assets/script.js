@@ -1,3 +1,4 @@
+// SDeclaring variables
 var now = dayjs();
 var container = $(".container");
 var txtArea = "";
